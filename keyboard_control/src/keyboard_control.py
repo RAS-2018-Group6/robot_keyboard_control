@@ -36,12 +36,12 @@ class keyboard_control:
 			rospy.loginfo("\n Linear Velocity: "+str(self.linear_velocity)+"\n Angular Velocity: "+str(self.angular_velocity))
 			self.vel_pub.publish(self.vel_msg)
 		elif key == Key.left:
-		    	self.angular_velocity = 0.06
+		    	self.angular_velocity = 0.6
 			self.vel_msg.angular.z = self.angular_velocity
 			rospy.loginfo("\n Linear Velocity: "+str(self.linear_velocity)+"\n Angular Velocity: "+str(self.angular_velocity))
 			self.vel_pub.publish(self.vel_msg)
 		elif key == Key.right:
-		    	self.angular_velocity = -0.06
+		    	self.angular_velocity = -0.6
 			self.vel_msg.angular.z = self.angular_velocity
 			rospy.loginfo("\n Linear Velocity: "+str(self.linear_velocity)+"\n Angular Velocity: "+str(self.angular_velocity))
 			self.vel_pub.publish(self.vel_msg)
