@@ -26,22 +26,22 @@ class keyboard_control:
 	def on_press(self,key):
 		print('{0} pressed'.format(key))
 		if key == Key.up:
-		    	self.linear_velocity = 0.01
+		    	self.linear_velocity = 0.1
 			self.vel_msg.linear.x = self.linear_velocity
 			rospy.loginfo("\n Linear Velocity: "+str(self.linear_velocity)+"\n Angular Velocity: "+str(self.angular_velocity))
 			self.vel_pub.publish(self.vel_msg)
 		elif key == Key.down:
-		    	self.linear_velocity = -0.01
+		    	self.linear_velocity = -0.1
 			self.vel_msg.linear.x = self.linear_velocity
 			rospy.loginfo("\n Linear Velocity: "+str(self.linear_velocity)+"\n Angular Velocity: "+str(self.angular_velocity))
 			self.vel_pub.publish(self.vel_msg)
 		elif key == Key.left:
-		    	self.angular_velocity = 0.05
+		    	self.angular_velocity = 0.06
 			self.vel_msg.angular.z = self.angular_velocity
 			rospy.loginfo("\n Linear Velocity: "+str(self.linear_velocity)+"\n Angular Velocity: "+str(self.angular_velocity))
 			self.vel_pub.publish(self.vel_msg)
 		elif key == Key.right:
-		    	self.angular_velocity = -0.05
+		    	self.angular_velocity = -0.06
 			self.vel_msg.angular.z = self.angular_velocity
 			rospy.loginfo("\n Linear Velocity: "+str(self.linear_velocity)+"\n Angular Velocity: "+str(self.angular_velocity))
 			self.vel_pub.publish(self.vel_msg)
