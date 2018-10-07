@@ -10,7 +10,7 @@ from pynput.keyboard import Key
 class keyboard_control:
 
 	def __init__(self):
-		self.vel_pub = rospy.Publisher("/motor_controller/twist",Twist,queue_size = 1)
+		self.vel_pub = rospy.Publisher("/motor_controller/twist",Twist,queue_size = 10)
 		self.linear_velocity = 0.0
 		self.angular_velocity = 0.0
 		self.vel_msg = Twist()
@@ -26,12 +26,12 @@ class keyboard_control:
 	def on_press(self,key):
 		print('{0} pressed'.format(key))
 		if key == Key.up:
-		    	self.linear_velocity = 0.1
+		    	self.linear_velocity = 0.2
 			self.vel_msg.linear.x = self.linear_velocity
 			rospy.loginfo("\n Linear Velocity: "+str(self.linear_velocity)+"\n Angular Velocity: "+str(self.angular_velocity))
 			self.vel_pub.publish(self.vel_msg)
 		elif key == Key.down:
-		    	self.linear_velocity = -0.1
+		    	self.linear_velocity = -0.2
 			self.vel_msg.linear.x = self.linear_velocity
 			rospy.loginfo("\n Linear Velocity: "+str(self.linear_velocity)+"\n Angular Velocity: "+str(self.angular_velocity))
 			self.vel_pub.publish(self.vel_msg)
